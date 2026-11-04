@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -19,14 +20,9 @@
     --green: #00e6b0;
     --green-dark: #00b894;
     --mint: #b8ffe5;
-    --blue: #60e8dc;
-    --purple: #7cebd0;
-    --gold: #00b894;
     --ink: #eafff6;
     --muted: #b8d8cf;
-    --white: #ffffff;
     --dark: #071c1b;
-    --card: #10332d;
 }
 
 body {
@@ -44,8 +40,6 @@ body {
 a, button {
     -webkit-tap-highlight-color: transparent;
 }
-
-/* Background */
 
 .background {
     position: fixed;
@@ -473,7 +467,7 @@ section {
     box-shadow: 0 12px 25px rgba(0,230,176,.25);
 }
 
-/* Hidden gallery */
+/* Gallery */
 
 .poster-gallery {
     display: none;
@@ -507,6 +501,27 @@ section {
     height: auto;
     border-radius: 12px;
     cursor: zoom-in;
+}
+
+/* Video */
+
+.video-card {
+    text-align: right;
+}
+
+.video-card h3 {
+    color: var(--green);
+    font-size: 17px;
+    margin: 8px 5px 14px;
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    border-radius: 12px;
+    background: #000;
+    border: 1px solid rgba(0,230,176,.2);
 }
 
 /* Large poster viewer */
@@ -832,12 +847,25 @@ footer {
 
         <div id="posterGallery" class="poster-gallery">
 
+            <!-- Poster -->
+
             <div class="poster-card">
                 <img
                     src="AREYAN-01.PNG"
                     alt="پوستر AREYAN"
                     onclick="openPoster(this.src)"
                 >
+            </div>
+
+            <!-- Video -->
+
+            <div class="poster-card video-card">
+                <h3>نمونه ویدیویی AREYAN</h3>
+
+                <video controls playsinline preload="metadata">
+                    <source src="AREYAN-VIDEO.mp4" type="video/mp4">
+                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                </video>
             </div>
 
         </div>

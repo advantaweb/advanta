@@ -4,60 +4,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090817">
+<meta name="theme-color" content="#071c1b">
 <title>AREYAN</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-:root{--gold:#d9bd83;--purple:#8170bd}
+
+:root{
+    --gold:#00b894;
+    --purple:#b8ffe5;
+    --green:#00e6b0;
+    --dark:#071c1b;
+}
 
 body{
-    min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:white;
-    background:radial-gradient(ellipse at 50% 45%,#25203f 0%,transparent 55%),
-    linear-gradient(135deg,#090817,#111329,#17142b);
+    min-height:100vh;
+    font-family:Tahoma,Arial,sans-serif;
+    color:white;
+    background:
+    radial-gradient(ellipse at 50% 45%,#123c35 0%,transparent 55%),
+    linear-gradient(135deg,#071c1b,#0c2925,#103b32);
     overflow-x:hidden
 }
 
-.background{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
-.glow{position:absolute;width:350px;height:350px;border-radius:50%;filter:blur(120px);opacity:.15}
-.glow-one{background:#8066c9;top:-170px;right:-100px}
-.glow-two{background:#d9bd83;bottom:-200px;left:-100px}
+.background{
+    position:fixed;inset:0;
+    pointer-events:none;overflow:hidden;z-index:-1
+}
+
+.glow{
+    position:absolute;width:350px;height:350px;
+    border-radius:50%;filter:blur(120px);opacity:.2
+}
+
+.glow-one{background:#00b894;top:-170px;right:-100px}
+.glow-two{background:#b8ffe5;bottom:-200px;left:-100px}
 
 header{
     position:fixed;top:0;width:100%;height:80px;padding:0 7%;
     display:flex;align-items:center;justify-content:space-between;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    background:rgba(9,8,23,.8);backdrop-filter:blur(15px);z-index:10
+    border-bottom:1px solid rgba(0,184,148,.15);
+    background:rgba(7,28,27,.85);
+    backdrop-filter:blur(15px);z-index:10
 }
 
-.logo{font-size:25px;font-weight:900;letter-spacing:5px;color:#f4e5c5}
-.logo span{color:var(--gold)}
+.logo{
+    font-size:25px;font-weight:900;
+    letter-spacing:5px;color:#eafff6
+}
+
+.logo span{color:var(--green)}
 
 .menu-button{
-    width:43px;height:43px;display:flex;align-items:center;justify-content:center;
-    border:1px solid rgba(217,189,131,.25);border-radius:13px;
-    background:rgba(255,255,255,.035);cursor:pointer
+    width:43px;height:43px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(0,230,176,.4);
+    border-radius:13px;background:rgba(255,255,255,.035);
+    cursor:pointer
 }
 
 .dots{display:flex;gap:4px}
-.dots span{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.dots span{
+    width:5px;height:5px;border-radius:50%;
+    background:var(--green)
+}
 
 .menu-list{
-    display:none;position:absolute;top:70px;left:7%;width:190px;padding:12px;
-    background:#17142b;border:1px solid rgba(217,189,131,.2);border-radius:12px
+    display:none;position:absolute;top:70px;left:7%;
+    width:190px;padding:12px;
+    background:#102b27;
+    border:1px solid rgba(0,230,176,.3);
+    border-radius:12px
 }
 
 .menu-list.show{display:block}
 
 .menu-list a{
-    display:block;color:white;text-decoration:none;padding:12px;
-    font-size:14px;border-radius:8px
+    display:block;color:white;text-decoration:none;
+    padding:12px;font-size:14px;border-radius:8px;
+    transition:.3s
 }
 
-.menu-list a:hover{background:rgba(217,189,131,.1);color:var(--gold)}
+.menu-list a:hover{
+    background:rgba(0,184,148,.15);
+    color:var(--green)
+}
 
 main{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    min-height:100vh;display:flex;
+    align-items:center;justify-content:center;
     position:relative;padding:100px 20px 40px
 }
 
@@ -68,31 +103,45 @@ main{
 
 .ring{
     position:absolute;width:300px;height:300px;
-    border:1px solid rgba(217,189,131,.15);border-radius:50%;
+    border:1px solid rgba(0,230,176,.3);
+    border-radius:50%;
     animation:ringRotate 25s linear infinite
 }
 
 .ring::before{
     content:"";position:absolute;inset:17px;
-    border:1px solid rgba(129,112,189,.2);border-radius:50%
+    border:1px solid rgba(184,255,229,.25);
+    border-radius:50%
 }
 
 .ring::after{
     content:"";position:absolute;inset:40px;
-    border:1px dashed rgba(217,189,131,.13);border-radius:50%
+    border:1px dashed rgba(0,184,148,.3);
+    border-radius:50%
 }
 
-.brand{position:relative;z-index:2;text-align:center;animation:fadeIn 1.5s ease}
+.brand{
+    position:relative;z-index:2;
+    text-align:center;animation:fadeIn 1.5s ease
+}
 
 .brand h1{
-    font-size:clamp(55px,11vw,100px);font-weight:900;letter-spacing:12px;
-    padding-left:12px;background:linear-gradient(120deg,#fff5df,#d9bd83,#fff0ce);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 5px 25px rgba(217,189,131,.15))
+    font-size:clamp(55px,11vw,100px);
+    font-weight:900;letter-spacing:12px;padding-left:12px;
+    background:linear-gradient(120deg,#ffffff,#00e6b0,#b8ffe5);
+    -webkit-background-clip:text;
+    background-clip:text;color:transparent;
+    filter:drop-shadow(0 5px 25px rgba(0,184,148,.3))
 }
 
-.line{width:100px;height:2px;margin:18px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.brand p{color:#c7c0d9;font-size:15px;letter-spacing:2px}
+.line{
+    width:100px;height:2px;margin:18px auto;
+    background:linear-gradient(90deg,transparent,#00e6b0,transparent)
+}
+
+.brand p{
+    color:#b8d8cf;font-size:15px;letter-spacing:2px
+}
 
 /* دکمه‌های صفحه اصلی */
 .hero-buttons{
@@ -101,24 +150,28 @@ main{
 }
 
 .hero-btn{
-    display:inline-block;padding:12px 22px;border-radius:30px;
-    text-decoration:none;font-size:14px;font-weight:bold;
-    color:#17142b;background:linear-gradient(120deg,#fff0ce,#d9bd83);
+    display:inline-block;padding:12px 22px;
+    border-radius:30px;text-decoration:none;
+    font-size:14px;font-weight:bold;
+    color:#06231c;
+    background:linear-gradient(120deg,#b8ffe5,#00b894);
     transition:all .35s ease
 }
 
 .hero-btn:hover{
     transform:translateY(-5px) scale(1.05);
-    box-shadow:0 8px 22px rgba(217,189,131,.25)
+    box-shadow:0 8px 22px rgba(0,184,148,.3)
 }
 
 .hero-btn.secondary{
-    color:var(--gold);background:transparent;border:1px solid var(--gold)
+    color:#00e6b0;background:transparent;
+    border:1px solid #00e6b0
 }
 
 .spark{
-    position:absolute;width:6px;height:6px;background:var(--gold);
-    border-radius:50%;box-shadow:0 0 20px var(--gold);
+    position:absolute;width:6px;height:6px;
+    background:#00e6b0;border-radius:50%;
+    box-shadow:0 0 20px #00e6b0;
     animation:sparkGlow 2s infinite alternate
 }
 
@@ -131,59 +184,78 @@ section{
     animation:sectionAppear .8s ease both
 }
 
-.section-title{color:var(--gold);font-size:27px;margin-bottom:22px}
-.description{color:#c7c0d9;font-size:16px;line-height:2.2;max-width:650px;margin:auto}
+.section-title{
+    color:#00e6b0;font-size:27px;margin-bottom:22px
+}
 
+.description{
+    color:#b8d8cf;font-size:16px;line-height:2.2;
+    max-width:650px;margin:auto
+}
+
+/* خدمات */
 .services{
     display:grid;grid-template-columns:repeat(2,1fr);
     gap:18px;margin-top:30px
 }
 
-/* کارت‌های خدمات با افکت */
 .service{
-    padding:25px 15px;border:1px solid rgba(217,189,131,.15);
-    background:rgba(255,255,255,.035);border-radius:16px;
-    transition:all .4s ease;cursor:pointer
+    padding:25px 15px;
+    border:1px solid rgba(0,184,148,.25);
+    background:rgba(0,184,148,.045);
+    border-radius:16px;transition:all .4s ease;
+    cursor:pointer
 }
 
 .service:hover{
     transform:translateY(-10px) scale(1.02);
-    border-color:var(--gold);
-    box-shadow:0 12px 30px rgba(217,189,131,.2);
-    background:rgba(217,189,131,.07)
+    border-color:#00e6b0;
+    box-shadow:0 12px 30px rgba(0,184,148,.2);
+    background:rgba(0,184,148,.12)
 }
 
-.service h3{color:var(--gold);font-size:17px;margin-bottom:12px}
-.service p{color:#bcb5ce;font-size:13px;line-height:1.9}
+.service h3{
+    color:#00e6b0;font-size:17px;margin-bottom:12px
+}
 
-/* تصویر نمونه‌کار */
+.service p{
+    color:#b8d8cf;font-size:13px;line-height:1.9
+}
+
+/* نمونه‌کار */
 .portfolio-image{
     display:block;width:100%;max-width:600px;height:auto;
     margin:25px auto 0;border-radius:15px;
-    border:1px solid rgba(217,189,131,.25);
+    border:1px solid rgba(0,230,176,.4);
     box-shadow:0 10px 35px rgba(0,0,0,.3);
     transition:all .5s ease
 }
 
 .portfolio-image:hover{
     transform:scale(1.03);
-    box-shadow:0 15px 35px rgba(217,189,131,.3)
+    box-shadow:0 15px 35px rgba(0,184,148,.3)
 }
 
+/* تماس */
 .contact-button{
-    display:inline-block;margin-top:25px;padding:14px 30px;border-radius:30px;
-    color:#17142b;background:linear-gradient(120deg,#fff0ce,#d9bd83);
-    text-decoration:none;font-weight:bold;transition:all .3s ease
+    display:inline-block;margin-top:25px;
+    padding:14px 30px;border-radius:30px;
+    color:#06231c;
+    background:linear-gradient(120deg,#b8ffe5,#00b894);
+    text-decoration:none;font-weight:bold;
+    transition:all .3s ease
 }
 
 .contact-button:hover{
     transform:translateY(-5px);
-    box-shadow:0 8px 22px rgba(217,189,131,.25)
+    box-shadow:0 8px 22px rgba(0,184,148,.3)
 }
 
 footer{
-    text-align:center;padding:25px;color:#8d87a4;
-    border-top:1px solid rgba(255,255,255,.07);font-size:12px
+    text-align:center;padding:25px;
+    color:#8ab9aa;
+    border-top:1px solid rgba(0,184,148,.2);
+    font-size:12px
 }
 
 /* انیمیشن‌ها */
@@ -207,6 +279,7 @@ footer{
     to{opacity:1;transform:translateY(0)}
 }
 
+/* موبایل */
 @media(max-width:600px){
     header{height:72px;padding:0 6%}
     .logo{font-size:22px}
@@ -217,6 +290,15 @@ footer{
     .spark-two{left:25px}
     .services{grid-template-columns:1fr}
     section{padding:55px 10px}
+}
+
+/* کاهش حرکت برای کسانی که آن را ترجیح می‌دهند */
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        scroll-behavior:auto!important;
+        animation:none!important;
+        transition:none!important
+    }
 }
 </style>
 </head>

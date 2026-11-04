@@ -10,127 +10,203 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
 :root{--gold:#d9bd83;--purple:#8170bd}
+
 body{
     min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:white;
     background:radial-gradient(ellipse at 50% 45%,#25203f 0%,transparent 55%),
     linear-gradient(135deg,#090817,#111329,#17142b);
     overflow-x:hidden
 }
+
 .background{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
 .glow{position:absolute;width:350px;height:350px;border-radius:50%;filter:blur(120px);opacity:.15}
 .glow-one{background:#8066c9;top:-170px;right:-100px}
 .glow-two{background:#d9bd83;bottom:-200px;left:-100px}
+
 header{
     position:fixed;top:0;width:100%;height:80px;padding:0 7%;
     display:flex;align-items:center;justify-content:space-between;
     border-bottom:1px solid rgba(255,255,255,.07);
     background:rgba(9,8,23,.8);backdrop-filter:blur(15px);z-index:10
 }
+
 .logo{font-size:25px;font-weight:900;letter-spacing:5px;color:#f4e5c5}
 .logo span{color:var(--gold)}
+
 .menu-button{
     width:43px;height:43px;display:flex;align-items:center;justify-content:center;
     border:1px solid rgba(217,189,131,.25);border-radius:13px;
     background:rgba(255,255,255,.035);cursor:pointer
 }
+
 .dots{display:flex;gap:4px}
 .dots span{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
 .menu-list{
     display:none;position:absolute;top:70px;left:7%;width:190px;padding:12px;
     background:#17142b;border:1px solid rgba(217,189,131,.2);border-radius:12px
 }
+
 .menu-list.show{display:block}
+
 .menu-list a{
     display:block;color:white;text-decoration:none;padding:12px;
     font-size:14px;border-radius:8px
 }
+
 .menu-list a:hover{background:rgba(217,189,131,.1);color:var(--gold)}
+
 main{
     min-height:100vh;display:flex;align-items:center;justify-content:center;
     position:relative;padding:100px 20px 40px
 }
+
 .design{
     position:relative;width:min(650px,90vw);height:360px;
     display:flex;align-items:center;justify-content:center
 }
+
 .ring{
     position:absolute;width:300px;height:300px;
-    border:1px solid rgba(217,189,131,.15);border-radius:50%
+    border:1px solid rgba(217,189,131,.15);border-radius:50%;
+    animation:ringRotate 25s linear infinite
 }
+
 .ring::before{
     content:"";position:absolute;inset:17px;
     border:1px solid rgba(129,112,189,.2);border-radius:50%
 }
+
 .ring::after{
     content:"";position:absolute;inset:40px;
     border:1px dashed rgba(217,189,131,.13);border-radius:50%
 }
+
 .brand{position:relative;z-index:2;text-align:center;animation:fadeIn 1.5s ease}
+
 .brand h1{
     font-size:clamp(55px,11vw,100px);font-weight:900;letter-spacing:12px;
     padding-left:12px;background:linear-gradient(120deg,#fff5df,#d9bd83,#fff0ce);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     filter:drop-shadow(0 5px 25px rgba(217,189,131,.15))
 }
+
 .line{width:100px;height:2px;margin:18px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .brand p{color:#c7c0d9;font-size:15px;letter-spacing:2px}
 
 /* دکمه‌های صفحه اصلی */
 .hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:25px;
-}
-.hero-btn{
-    display:inline-block;
-    padding:12px 22px;
-    border-radius:30px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:bold;
-    color:#17142b;
-    background:linear-gradient(120deg,#fff0ce,#d9bd83);
-    transition:.3s;
-}
-.hero-btn:hover{transform:translateY(-4px)}
-.hero-btn.secondary{
-    color:var(--gold);
-    background:transparent;
-    border:1px solid var(--gold);
+    display:flex;justify-content:center;gap:12px;
+    flex-wrap:wrap;margin-top:25px
 }
 
-.spark{position:absolute;width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 20px var(--gold)}
+.hero-btn{
+    display:inline-block;padding:12px 22px;border-radius:30px;
+    text-decoration:none;font-size:14px;font-weight:bold;
+    color:#17142b;background:linear-gradient(120deg,#fff0ce,#d9bd83);
+    transition:all .35s ease
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 8px 22px rgba(217,189,131,.25)
+}
+
+.hero-btn.secondary{
+    color:var(--gold);background:transparent;border:1px solid var(--gold)
+}
+
+.spark{
+    position:absolute;width:6px;height:6px;background:var(--gold);
+    border-radius:50%;box-shadow:0 0 20px var(--gold);
+    animation:sparkGlow 2s infinite alternate
+}
+
 .spark-one{top:45px;right:100px}
 .spark-two{bottom:45px;left:100px}
+
 section{
     width:min(900px,90%);margin:0 auto;padding:75px 20px;
-    text-align:center;scroll-margin-top:80px
+    text-align:center;scroll-margin-top:80px;
+    animation:sectionAppear .8s ease both
 }
+
 .section-title{color:var(--gold);font-size:27px;margin-bottom:22px}
 .description{color:#c7c0d9;font-size:16px;line-height:2.2;max-width:650px;margin:auto}
-.services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+
+.services{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:18px;margin-top:30px
+}
+
+/* کارت‌های خدمات با افکت */
 .service{
     padding:25px 15px;border:1px solid rgba(217,189,131,.15);
-    background:rgba(255,255,255,.035);border-radius:16px;transition:.3s
+    background:rgba(255,255,255,.035);border-radius:16px;
+    transition:all .4s ease;cursor:pointer
 }
-.service:hover{transform:translateY(-5px);border-color:var(--gold)}
+
+.service:hover{
+    transform:translateY(-10px) scale(1.02);
+    border-color:var(--gold);
+    box-shadow:0 12px 30px rgba(217,189,131,.2);
+    background:rgba(217,189,131,.07)
+}
+
 .service h3{color:var(--gold);font-size:17px;margin-bottom:12px}
 .service p{color:#bcb5ce;font-size:13px;line-height:1.9}
+
+/* تصویر نمونه‌کار */
 .portfolio-image{
     display:block;width:100%;max-width:600px;height:auto;
     margin:25px auto 0;border-radius:15px;
     border:1px solid rgba(217,189,131,.25);
-    box-shadow:0 10px 35px rgba(0,0,0,.3)
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+    transition:all .5s ease
 }
+
+.portfolio-image:hover{
+    transform:scale(1.03);
+    box-shadow:0 15px 35px rgba(217,189,131,.3)
+}
+
 .contact-button{
     display:inline-block;margin-top:25px;padding:14px 30px;border-radius:30px;
     color:#17142b;background:linear-gradient(120deg,#fff0ce,#d9bd83);
-    text-decoration:none;font-weight:bold
+    text-decoration:none;font-weight:bold;transition:all .3s ease
 }
-footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(255,255,255,.07);font-size:12px}
-@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+
+.contact-button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 22px rgba(217,189,131,.25)
+}
+
+footer{
+    text-align:center;padding:25px;color:#8d87a4;
+    border-top:1px solid rgba(255,255,255,.07);font-size:12px
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(15px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes sparkGlow{
+    from{opacity:.4;transform:scale(.8)}
+    to{opacity:1;transform:scale(1.5)}
+}
+
+@keyframes ringRotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+@keyframes sectionAppear{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
 @media(max-width:600px){
     header{height:72px;padding:0 6%}
     .logo{font-size:22px}
@@ -146,6 +222,7 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
 </head>
 
 <body>
+
 <div class="background">
     <div class="glow glow-one"></div>
     <div class="glow glow-two"></div>
@@ -153,9 +230,11 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
 
 <header>
     <div class="logo">AREYAN<span>.</span></div>
+
     <button class="menu-button" onclick="toggleMenu()" aria-label="منو">
         <div class="dots"><span></span><span></span><span></span></div>
     </button>
+
     <nav class="menu-list" id="menuList">
         <a href="#home" onclick="closeMenu()">صفحه اصلی</a>
         <a href="#about" onclick="closeMenu()">درباره ما</a>
@@ -170,6 +249,7 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
         <div class="ring"></div>
         <div class="spark spark-one"></div>
         <div class="spark spark-two"></div>
+
         <div class="brand">
             <h1>AREYAN</h1>
             <div class="line"></div>
@@ -197,19 +277,23 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
 
 <section id="services">
     <h2 class="section-title">خدمات ما</h2>
+
     <div class="services">
         <div class="service">
             <h3>طراحی گرافیکی</h3>
             <p>طراحی پوستر، بنر و محتوای تصویری جذاب.</p>
         </div>
+
         <div class="service">
             <h3>تبلیغات دیجیتالی</h3>
             <p>ساخت محتوای تبلیغاتی برای معرفی کسب‌وکارها.</p>
         </div>
+
         <div class="service">
             <h3>ویرایش ویدیو</h3>
             <p>ساخت و ویرایش ویدیوهای کوتاه و تبلیغاتی.</p>
         </div>
+
         <div class="service">
             <h3>طراحی ویب‌سایت</h3>
             <p>ساخت صفحات ویب‌سایت مدرن و زیبا.</p>
@@ -229,6 +313,7 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
     <p class="description">
         برای سفارش خدمات و همکاری با AREYAN با ما در تماس شوید.
     </p>
+
     <a class="contact-button"
        href="https://wa.me/93781140924"
        target="_blank"
@@ -245,9 +330,11 @@ footer{text-align:center;padding:25px;color:#8d87a4;border-top:1px solid rgba(25
 function toggleMenu(){
     document.getElementById("menuList").classList.toggle("show");
 }
+
 function closeMenu(){
     document.getElementById("menuList").classList.remove("show");
 }
 </script>
+
 </body>
 </html>

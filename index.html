@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#071c1b">
-<meta name="description" content="AREYAN - کیفیت در کار، اعتماد در همکاری">
-<title>AREYAN | دنیای خلاقیت</title>
+<meta name="description" content="ADVANTA Digital Market - کیفیت در کار، اعتماد در همکاری">
+<title>ADVANTA | Digital Market</title>
 
 <style>
 * {
@@ -252,6 +253,14 @@ main {
     font-size: 15px;
     letter-spacing: 2px;
     line-height: 2;
+}
+
+.brand .brand-subtitle {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-top: 5px;
 }
 
 .hero-buttons {
@@ -742,7 +751,7 @@ footer {
 </div>
 
 <header>
-    <div class="logo">AREYAN<span>.</span></div>
+    <div class="logo">ADVANTA<span>.</span></div>
 
     <button class="menu-button" onclick="toggleMenu()" aria-label="منو">
         <div class="dots">
@@ -769,8 +778,9 @@ footer {
         <div class="spark spark-three"></div>
 
         <div class="brand">
-            <h1>AREYAN</h1>
+            <h1>ADVANTA</h1>
             <div class="line"></div>
+            <p class="brand-subtitle">DIGITAL MARKET</p>
             <p>کیفیت در کار، اعتماد در همکاری</p>
 
             <div class="hero-buttons">
@@ -790,12 +800,14 @@ footer {
 </main>
 
 <section id="about">
-    <h2 class="section-title">درباره AREYAN</h2>
+    <h2 class="section-title">درباره ADVANTA</h2>
 
     <p class="description">
-        AREYAN تلاش می‌کند کارهای زیبا و باکیفیت را
-        در دنیای دیجیتال ارائه کند. هدف ما جلب رضایت
-        مشتریان و ساختن همکاری‌های خوب و دوامدار است.
+        ADVANTA یک مرکز خدمات دیجیتالی است که
+        خدمات طراحی گرافیکی، تبلیغات دیجیتالی و
+        ویرایش ویدیو را با کیفیت ارائه می‌کند.
+        هدف ما جلب رضایت مشتریان و ساختن همکاری‌های
+        خوب و دوامدار است.
     </p>
 </section>
 
@@ -807,13 +819,13 @@ footer {
         <div class="service">
             <div class="service-icon">🎨</div>
             <h3>طراحی گرافیکی</h3>
-            <p>طراحی پوستر، بنر و محتوای تصویری جذاب.</p>
+            <p>ساخت اعلان‌های تبلیغاتی، بنر و طرح‌های تصویری زیبا.</p>
         </div>
 
         <div class="service">
             <div class="service-icon">📢</div>
             <h3>تبلیغات دیجیتالی</h3>
-            <p>ساخت محتوای تبلیغاتی برای معرفی کسب‌وکارها.</p>
+            <p>ساخت محتوای تبلیغاتی برای معرفی دکان‌ها و کاروبارها.</p>
         </div>
 
         <div class="service">
@@ -826,34 +838,30 @@ footer {
 </section>
 
 <section id="portfolio">
-    <h2 class="section-title">نمونه‌کارهای AREYAN</h2>
+    <h2 class="section-title">نمونه‌کارهای ADVANTA</h2>
 
     <div class="portfolio-box">
         <p>
-            برای مشاهدهٔ طرح‌ها و نمونه‌کارهای ما
+            برای دیدن طرح‌ها و نمونه‌کارهای ما
             روی دکمهٔ زیر کلیک کنید.
         </p>
 
         <button class="gallery-button" onclick="toggleGallery()">
-            مشاهدهٔ نمونه‌کارها
+            دیدن نمونه‌کارها
         </button>
 
         <div id="posterGallery" class="poster-gallery">
 
-            <!-- Poster -->
-
             <div class="poster-card">
                 <img
                     src="AREYAN-01.PNG"
-                    alt="پوستر AREYAN"
+                    alt="نمونه اعلان تبلیغاتی"
                     onclick="openPoster(this.src)"
                 >
             </div>
 
-            <!-- Video -->
-
             <div class="poster-card video-card">
-                <h3>نمونه ویدیویی AREYAN</h3>
+                <h3>نمونه ویدیویی ADVANTA</h3>
 
                 <video controls playsinline preload="metadata">
                     <source src="AREYAN-VIDEO.mp4" type="video/mp4">
@@ -864,8 +872,6 @@ footer {
         </div>
     </div>
 </section>
-
-<!-- Large poster viewer -->
 
 <div id="posterViewer"
      class="poster-viewer"
@@ -879,7 +885,7 @@ footer {
 
     <img id="largePoster"
          src=""
-         alt="نمایش بزرگ پوستر"
+         alt="نمایش بزرگ اعلان"
          onclick="event.stopPropagation()">
 
 </div>
@@ -889,7 +895,7 @@ footer {
         <h2 class="section-title">تماس با ما</h2>
 
         <p class="description">
-            برای سفارش خدمات و همکاری با AREYAN
+            برای سفارش خدمات و همکاری با ADVANTA
             با ما در تماس شوید.
         </p>
 
@@ -903,7 +909,7 @@ footer {
 </section>
 
 <footer>
-    © 2026 AREYAN — تمام حقوق محفوظ است.
+    © 2026 ADVANTA Digital Market — تمام حقوق محفوظ است.
 </footer>
 
 <script>

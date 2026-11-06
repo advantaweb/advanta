@@ -28,7 +28,6 @@ a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer}
 .container{width:min(1160px,90%);margin:auto}
 
-/* سرصفحه */
 header{
 position:fixed;top:0;left:0;width:100%;z-index:100;
 padding:17px 0;transition:.3s;
@@ -55,7 +54,6 @@ border-radius:3px;font-size:12px;
 .nav-cta:hover{background:var(--dark);color:white}
 .menu-btn{display:none;background:none;border:0;font-size:25px}
 
-/* صفحه نخست */
 .hero{
 min-height:760px;display:flex;align-items:center;
 position:relative;overflow:hidden;padding:130px 0 90px;
@@ -135,7 +133,6 @@ background:var(--paper);padding:15px 20px;
 font-size:11px;color:var(--dark);
 }
 
-/* بخش‌ها */
 .section{padding:105px 0}
 .section-head{
 display:flex;justify-content:space-between;align-items:end;
@@ -145,7 +142,6 @@ gap:25px;margin-bottom:45px;
 .section-title{font-size:clamp(27px,4vw,43px);font-weight:800;margin-top:10px}
 .section-note{max-width:340px;color:var(--muted);font-size:13px;line-height:2}
 
-/* درباره ما */
 .about{background:var(--paper)}
 .about-grid{
 display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;
@@ -161,7 +157,6 @@ font-size:55px;font-weight:900;letter-spacing:4px;direction:ltr;
 .about-copy p{font-size:14px;color:var(--muted);line-height:2.5}
 .about-line{width:55px;height:3px;background:var(--gold);margin:24px 0}
 
-/* خدمات */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .service{
 padding:35px 27px;background:var(--paper);
@@ -173,13 +168,11 @@ border:1px solid var(--line);min-height:230px;transition:.35s;
 .service h3{font-size:19px;margin-bottom:10px}
 .service p{font-size:13px;line-height:2.2;color:var(--muted)}
 
-/* نمونه‌کارها */
 .portfolio{background:var(--dark);color:var(--paper)}
 .portfolio .section-title{color:var(--paper)}
 .portfolio .section-note{color:#c0c1b5}
 .portfolio .section-kicker{color:#d0b17d}
 
-/* پوشه نمونه‌کار */
 .folder-area{
 display:flex;
 justify-content:center;
@@ -195,7 +188,6 @@ transition:.3s;
 .folder-icon{font-size:100px;color:#d0b17d}
 .folder-name{font-size:20px;font-weight:bold}
 
-/* پنجره بازشدن پوشه */
 .folder-window{
 display:none;position:fixed;inset:0;z-index:250;
 background:rgba(15,18,15,.96);
@@ -216,7 +208,7 @@ align-items:center;margin-bottom:25px;color:white;
 background:none;border:0;color:white;font-size:35px;
 }
 .folder-images{
-display:grid;grid-template-columns:1fr 1fr;gap:20px;
+display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
 }
 .folder-image{
 background:#252c25;padding:10px;border-radius:5px;
@@ -226,7 +218,6 @@ width:100%;height:auto;display:block;
 cursor:zoom-in;
 }
 
-/* نمایش بزرگ عکس */
 .viewer{
 display:none;position:fixed;inset:0;z-index:400;
 background:rgba(0,0,0,.96);
@@ -239,7 +230,6 @@ position:absolute;top:15px;left:25px;
 border:0;background:none;color:white;font-size:40px;
 }
 
-/* تماس */
 .contact{
 background:var(--olive);color:#f8f4e9;padding:90px 0;
 }
@@ -251,7 +241,6 @@ display:flex;align-items:center;justify-content:space-between;gap:35px;
 .contact .btn{border-color:#f8f4e9;color:var(--dark);background:#f8f4e9}
 .contact .btn:hover{background:transparent;color:white}
 
-/* پایین صفحه */
 footer{background:#202720;color:#c6c4b8;padding:35px 0}
 .footer-row{
 display:flex;justify-content:space-between;align-items:center;
@@ -261,7 +250,6 @@ gap:20px;flex-wrap:wrap;
 .footer-logo span{color:#c4a16d}
 footer p{font-size:11px;color:#aaa99e}
 
-/* موبایل */
 @media(max-width:760px){
 .nav-links{
 display:none;position:absolute;top:70px;right:5%;width:90%;
@@ -404,7 +392,6 @@ ADVANTA در بخش طراحی گرافیکی، ساخت اعلان‌های ت�
 </div>
 </section>
 
-<!-- پوشه نمونه‌کارها -->
 <div class="folder-window" id="folderWindow">
 <div class="folder-content">
 <div class="folder-heading">
@@ -414,10 +401,13 @@ ADVANTA در بخش طراحی گرافیکی، ساخت اعلان‌های ت�
 
 <div class="folder-images">
 <div class="folder-image">
-<img src="AREYAN-01.png" alt="نمونه کاری اول" onclick="openViewer(this.src)">
+<img src="AREYAN-01.png" alt="نمونه کاری اول" loading="lazy" onclick="openViewer(this.src)">
 </div>
 <div class="folder-image">
-<img src="AREYAN-02.png" alt="نمونه کاری دوم" onclick="openViewer(this.src)">
+<img src="AREYAN-02.png" alt="نمونه کاری دوم" loading="lazy" onclick="openViewer(this.src)">
+</div>
+<div class="folder-image">
+<img src="AREYAN-03.png" alt="پوستر عطر" loading="lazy" onclick="openViewer(this.src)">
 </div>
 </div>
 </div>
@@ -441,7 +431,6 @@ ADVANTA در بخش طراحی گرافیکی، ساخت اعلان‌های ت�
 </div>
 </footer>
 
-<!-- نمایش بزرگ عکس -->
 <div class="viewer" id="viewer" onclick="closeViewer()">
 <button class="viewer-close" onclick="closeViewer()">×</button>
 <img id="viewerImg" src="" alt="نمایش بزرگ عکس" onclick="event.stopPropagation()">
